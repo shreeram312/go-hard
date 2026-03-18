@@ -17,4 +17,10 @@ func main(){
 	var x string ="hello world bhai";
 	fmt.Println(x)
 
+	const y uint8 = 244
+	fmt.Println(y)
+
+	z:= 100000000
+	fmt.Println(z)
+	
 }
