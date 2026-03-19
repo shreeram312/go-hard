@@ -20,7 +20,13 @@ func main(){
 	const y uint8 = 244
 	fmt.Println(y)
 
-	z:= 100000000
-	fmt.Println(z)
-	
+	z:= 3
+	fmt.Printf("%T",z)
+
+	var m int = 10
+	fmt.Println(m)	
+
+	var f float64 = 23
+	f = f + 10.3
+	fmt.Println(f)
 }
