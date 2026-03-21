@@ -8,13 +8,29 @@ func main(){
 	fmt.Println("hello",x,2)
 
 
-	// y:=false
+	y:=false
 
 	// %T prints the types of the variable 
-	// fmt.Printf("%T %T",y,y)
+	fmt.Printf("%T %T",y,y)
 
 
-	z:=3453453534534543535
+	z:=345
 	//represents %b the binary format of variable
 	fmt.Printf("%b", z)
+	fmt.Println("")
+
+
+	a:=10.5435353453
+	// %e returns the scientific value
+	// %f returns the smallest floating number 
+	// %.2f retuns upto 2 decimals 
+	// double %% for percentage at the end
+	fmt.Printf("%.5f %%\n",a )
+
+
+
+	b:="hello"
+	// %s is used for string formatting
+	fmt.Printf("%s",b)
+
 }
