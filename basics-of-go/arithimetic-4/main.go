@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 
 // byy default int is int 64
@@ -30,5 +33,8 @@ func main(){
 	fmt.Println(c)
 
 	fmt.Println(z)
+
+
+	fmt.Println(math.Min(12323,232323))
 	
 }
