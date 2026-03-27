@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
-
 
 // byy default int is int 64
 // by default unint is unint 64
@@ -35,6 +35,20 @@ func main(){
 	fmt.Println(z)
 
 
+	//  math library is used for mathematical operations
 	fmt.Println(math.Min(12323,232323))
+
+	fmt.Println(math.Round(2.5))
+
+
+	// converting string too int use strconv package
+
+	og, err :=  strconv.ParseInt("2324234" ,10,64)
+	if err != nil {
+		fmt.Println(err)
+	}
+	
+	fmt.Println(og)
+	
 	
 }
