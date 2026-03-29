@@ -21,9 +21,16 @@ func main(){
 	fmt.Println(len(array))
 
 
-	for idx:=0 ; idx<len(array); idx++ {
-		for jdx:=0; jdx<len(array[idx]); jdx++ {
-			fmt.Println(array[idx][jdx])
+	// for idx:=0 ; idx<len(array); idx++ {
+	// 	for jdx:=0; jdx<len(array[idx]); jdx++ {
+	// 		fmt.Println(array[idx][jdx])
+	// 	}
+	// }
+
+
+	for _, val := range array{
+		for _, val2 := range val{
+			fmt.Println(val2,val)
 		}
 	}
 }
