@@ -15,8 +15,8 @@ func main(){
 	// fmt.Println(arr2)
 
 
-	array:= [3][3] int {{1,2,3},{4,5,6},{7,8,9}}
-	array[0] = [3] int {4,5,6}
+	array:= [...][3] int {{1,2,3},{4,5,6},{7,8,9}}
+	array[0] = [3] int {41,5312,613}
 	fmt.Println(array)
 	fmt.Println(len(array))
 
