@@ -32,7 +32,7 @@ func main() {
 	for i:=uint(0); i<uint(n); i++ {
 		for d:=uint(1); d<=5; d++ {
 			if i % d==0 {
-				mp3[d]++
+				mp3[d] = mp3[d] + 1
 			}
 		}
 	}
