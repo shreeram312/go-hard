@@ -6,12 +6,18 @@ import "fmt"
 // structs is type defination of fields
 
 
+type Sport struct{
+	Team string
+	Player string
+}
+
 type Person struct  {
 
 	//setting first letter of the field name to capital to make it public  and can be accessed outside the package
 
 	Name string
 	Age uint
+	Sport []Sport 
 }
 
 
@@ -26,12 +32,16 @@ func (p Person ) SetName(name string) {
 
 
 func main() {
-	var p1  Person = Person{ Name: "John", Age: 20,}
+	var p1  Person = Person{ Name: "shreeram", Age: 22, 
+Sport: []Sport{{Team:"RCB", Player:"Virat Kohli"},{Team:"CSK", Player:"MS Dhoni"}}}
 
 	// p1 is  sent as a copy of the struct so the name is not changed
 
 	// so it cant be modified the original struct
 	// ideally can be done using pointers
 	p1.SetName("Jane")
-	fmt.Println(p1.GetName())
+	fmt.Println(p1.Sport[0].Team)
+
+
+
 }
