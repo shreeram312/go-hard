@@ -34,6 +34,15 @@ func firstFunc(str string)  func(string) string {
 
 
 
+func sum(nums ...int) int{ 
+	s:=0
+	for _, value := range nums {
+		s+=value
+	}
+	return s
+}
+
+
 func main(){
 	 value, str:=add(10,200)
 	 fmt.Println(value , str)
@@ -54,9 +63,12 @@ func main(){
 
 
 
-	 f1:= firstFunc("hello")
-	 f2:= f1("world")
+	//  f1:= firstFunc("hello")
+	//  f2:= f1("world")
 
-	 fmt.Println(f2)
-	 
+	//  fmt.Println(f2)
+
+
+	a:= sum(1,2,3,4,5)
+	fmt.Println(a)
 }
