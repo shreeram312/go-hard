@@ -33,6 +33,7 @@ func firstFunc(str string)  func(string) string {
 }
 
 
+//variadic parameters
 
 func sum(nums ...int) int{ 
 	s:=0
@@ -71,4 +72,9 @@ func main(){
 
 	a:= sum(1,2,3,4,5)
 	fmt.Println(a)
+
+
+	// it works it sends slice one by one to the  but works only if it accpets varaiadic parameters
+	b:= sum([]int{1,2,3,4,5}...)
+	fmt.Println(b)
 }
