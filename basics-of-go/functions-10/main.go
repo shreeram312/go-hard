@@ -35,13 +35,17 @@ func firstFunc(str string)  func(string) string {
 
 //variadic parameters
 
-func sum(nums ...int) int{ 
-	s:=0
+func sum(nums ...int)(s int) { 
 	for _, value := range nums {
 		s+=value
 	}
-	return s
+
+	// return s is not needed because s is already declared in the function signature 
+	// named return values
+	
+	return 
 }
+
 
 
 func main(){
@@ -77,4 +81,6 @@ func main(){
 	// it works it sends slice one by one to the  but works only if it accpets varaiadic parameters
 	b:= sum([]int{1,2,3,4,5}...)
 	fmt.Println(b)
+
+
 }
