@@ -11,7 +11,12 @@ func divide(a int, b int) int {
 
 func deferredFunc() {
 	fmt.Println("deferred function")
+	r:= recover()
+	fmt.Println(r)
 }
+
+
+// if we add recover() in the deferred function then the program will not stop and will print the message
 
 func main(){
 	// fmt.Println(divide(2,0))
