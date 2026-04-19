@@ -32,8 +32,7 @@ func (p Person ) SetName(name string) {
 
 
 func main() {
-	var p1  Person = Person{ Name: "shreeram", Age: 22, 
-Sport: []Sport{{Team:"RCB", Player:"Virat Kohli"},{Team:"CSK", Player:"MS Dhoni"}}}
+	var p1  Person = Person{ Name: "shreeram", Age: 22,  Sport: [] Sport{{Team: "RCB", Player: "Virat Kohli"},{Team: "CSK", Player: "MS Dhoni"}}}
 
 	// p1 is  sent as a copy of the struct so the name is not changed
 
