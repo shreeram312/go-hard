@@ -1,52 +1,90 @@
+// package main
+
+// import "fmt"
+
+// type Shape interface {
+// 	getPerimeter() uint
+
+// }
+
+// type Triangle struct {
+// 	a uint
+// 	b uint
+// 	c uint
+// }
+
+// type Square struct {
+// 	width uint
+
+// }
+
+// func (s Square ) getPerimeter() uint {
+// 	return 4 * s.width
+// }
+
+// func(t Triangle) getPerimeter() uint {
+// 	return t.a + t.b + t.c
+// }
+
+// func main(){
+// 	var s Shape = Triangle{3, 4, 5}
+// 	fmt.Println(s.getPerimeter())
+
+// 	var s2 Shape = Square{width: 10}
+// 	fmt.Println(s2.getPerimeter())
+
+// 	var sl [] Shape = [] Shape{Triangle{1,3,4} , Square{width: 10}}
+
+// 	perimeters:= uint(0)
+
+// 	for _, shape:= range sl{
+// 		perimeters = perimeters + shape.getPerimeter()
+// 	}
+// }
+
 package main
 
 import "fmt"
 
 
-type Shape interface {
-	getPerimeter() uint
+type Logger  interface {
+	LogData(message string)
+}
+
+
+type FileLogger struct{}
+
+
+func ProcessPayment(l Logger){
+	l.LogData("Payment processed")
+}
+
+
+func (f FileLogger) LogData(message string){
+	fmt.Println("logging to file")
+}
+
+
+type ConsoleLogger struct{}
+
+func( c ConsoleLogger) LogData(message string){
+	fmt.Println("logging to console")
+}
+
+
+func (f FileLogger) WriteToDisk(){
+	f.LogData("writing to disk")
+}
+
+
+func main() {
+	var  f Logger  = FileLogger{}
+	var c = ConsoleLogger{}
+
+	ProcessPayment(f)
+	ProcessPayment(c)
 
 
 }
 
 
-type Triangle struct {
-	a uint
-	b uint
-	c uint
-}
-
-
-type Square struct {
-	width uint
-
-}
-
-
-func (s Square ) getPerimeter() uint {
-	return 4 * s.width
-}
-
-func(t Triangle) getPerimeter() uint {
-	return t.a + t.b + t.c
-}
-
-
-
-
-func main(){
-	var s Shape = Triangle{3, 4, 5}
-	fmt.Println(s.getPerimeter())
-
-	var s2 Shape = Square{width: 10}
-	fmt.Println(s2.getPerimeter())
-
-
-	var sl [] Shape = [] Shape{Triangle{1,3,4} , Square{width: 10}}
-
-	perimeters:= uint(0)
-
-	for _, shape:= range sl{
-		perimeters = perimeters + shape.getPerimeter()
-	}
-}
