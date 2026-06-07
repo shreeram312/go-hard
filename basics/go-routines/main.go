@@ -34,18 +34,26 @@ func add(x int, y int, ch chan int) {
 
 func main(){
 	ch :=  make(chan int)
-	go add(10,20,ch)
-	go add(30,40,ch)
-	go add(40,50,ch)
-	go add(40,3,ch)
+	ch2 := make(chan int)
 
+	go add(10,30,ch)
+	go add(1332313130,12222, ch2)
 	x:= <-ch
-	x= <-ch
-	x= <-ch
-	x= <-ch
+	y:=<-ch2
 
-	fmt.Println(x)
+	fmt.Println(x,y)
+
+
+	// by using sleect statement we can return whatver value first 
 }
 
 
 // go routines are deadlocked when the add function is not sending the value to the channel and main is waiting for the value to be sent to the channel.
+
+
+// send and receive only channels
+// send and receive only channels are used to send and receive values only to and from the channel
+// send <- channel is used to send values to the channel
+// receive <- channel is used to receive values from the channel
+// chan<- send only channel
+// <-chan receive only channel
