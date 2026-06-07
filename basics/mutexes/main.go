@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"time"
+
 	"sync"
 )
 
@@ -13,22 +13,27 @@ type Counter struct {
 }
 
 
-func count(counter *Counter){
+func count(counter *Counter,wg *sync.WaitGroup){
 	counter.lock.Lock()
 	defer counter.lock.Unlock()
 	counter.value++
 	fmt.Println(counter.value)
+	wg.Done()
 }
 
 
 func main(){
 	counter := Counter{}
 
+	wg:= sync.WaitGroup{}
+	wg.Add(100)
 
 	for i:=0; i<100; i++{
-		go count(&counter)
+		go count(&counter, &wg)
 	}
 
-	time.Sleep(2 * time.Second)
+	wg.Wait()
+	// time.Sleep(2 * time.Second) // if i comment this it will end immedeatiely
+
 
 }
