@@ -5,23 +5,40 @@ import (
 	"time"
 )
 
+// "fmt"
+// "time"
+
+// func run1(){
+// 	time.Sleep(2 * time.Second)
+// 	fmt.Println("run 1")
+// }
+
+// func run2(){
+// 	time.Sleep(2 * time.Second)
+// 	fmt.Println("run 2")
+// }
+
+// func main(){
+// 	go run1()
+// 	go run2()
+// 	time.Sleep(3 * time.Second)
+
+// 	fmt.Println("done")
+// }
 
 
-func run1(){
-	time.Sleep(2 * time.Second)
-	fmt.Println("run 1")
-}
-
-func run2(){
-	time.Sleep(2 * time.Second)
-	fmt.Println("run 2")
+func add(x int, y int, ch chan int) {
+	time.Sleep(5 * time.Second)
+	// ch <- x + y
 }
 
 
 func main(){
-	go run1()
-	go run2()
-	time.Sleep(3 * time.Second)
-	
-	fmt.Println("done")
+	ch:= make(chan int)
+    go add(10,20,ch)
+	x:=<-ch
+ 	fmt.Println(x)
 }
+
+
+// go routines are deadlocked when the add function is not sending the value to the channel and main is waiting for the value to be sent to the channel.
