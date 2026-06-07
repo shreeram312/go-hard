@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 // "fmt"
 // "time"
@@ -28,16 +25,26 @@ import (
 
 
 func add(x int, y int, ch chan int) {
-	time.Sleep(5 * time.Second)
-	// ch <- x + y
+	fmt.Println("x + y is ", x+ y)
+	ch <- x + y
+
+
 }
 
 
 func main(){
-	ch:= make(chan int)
-    go add(10,20,ch)
-	x:=<-ch
- 	fmt.Println(x)
+	ch :=  make(chan int)
+	go add(10,20,ch)
+	go add(30,40,ch)
+	go add(40,50,ch)
+	go add(40,3,ch)
+
+	x:= <-ch
+	x= <-ch
+	x= <-ch
+	x= <-ch
+
+	fmt.Println(x)
 }
 
 
