@@ -75,16 +75,22 @@ func main(){
 	// create a file
 
 	f,err:= os.Create("example2.txt")
+
 	if err!=nil{
 		panic(err)
 	}
 
 	defer f.Close()
 
-	f.WriteString("hi go bro")
-	f.WriteString(" Hello")
+	// f.WriteString("hi go bro")
+	// f.WriteString(" Hello")
+
+	bytes:= []byte("Go lang")
+
+	f.Write(bytes)
+	
 
 
-
-
+	// read and write file in streaming fashnion
+	// using reader and writer from buffio
 }
