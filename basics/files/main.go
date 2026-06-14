@@ -93,4 +93,9 @@ func main(){
 
 	// read and write file in streaming fashnion
 	// using reader and writer from buffio
+
+
+	// delete a file 
+
+	os.Remove("example2.txt")
 }
