@@ -8,16 +8,30 @@ import (
 
 type Truck struct{
 	id string
+
+}
+
+
+func (t *Truck) LoadCargo() error{
+	return nil
+
 }
 
 
 
-func processTruck(truck *Truck)error {
-	truck.id ="23"
+
+var (
+	ErrNotImplemented  = errors.New("Not Implemented ")
+	ErrTruckNotFound = errors.New("Truck not found")
+)
+
+func processTruck(truck Truck)error {
+
 	fmt.Println("Processing truck",truck)
 
 
-	return errors.New("Some error")
+
+	return ErrNotImplemented
 	
 }
 
@@ -41,7 +55,16 @@ func main(){
 
 
 		// another way
-		if err:=processTruck(&truck[i]); err!=nil{
+		if err:=processTruck(truck[i]); err!=nil{
+			// if errors.Is(err,ErrNotImplemented){
+			// 	// we do this 
+			// }
+
+			// if errors.Is(err,ErrTruckNotFound){
+			// 	// we do this 
+			// }
+
+			// or use switch
 			log.Fatalf("Error processing %s",err)
 		}
 		fmt.Println("ok")
