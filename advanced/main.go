@@ -33,9 +33,15 @@ func main(){
 
 	for i := range truck{
 		
-		err:=processTruck(&truck[i])
+		// err:=processTruck(&truck[i])
 
-		if err!=nil{
+		// if err!=nil{
+		// 	log.Fatalf("Error processing %s",err)
+		// }
+
+
+		// another way
+		if err:=processTruck(&truck[i]); err!=nil{
 			log.Fatalf("Error processing %s",err)
 		}
 		fmt.Println("ok")
